@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
-// import image from '../assets/bg_home.jpg'
 import profile_background from '../assets/bg_profile.jpg'
-import profile_photo from "../assets/profile01.jpg"
+// import profile_photo from "../assets/profile01.jpg"
 import ProfileInformation from './ProfileInformation'
 import ProfileGallery from './ProfileGallery'
 import {useParams } from "react-router-dom";
@@ -12,18 +11,16 @@ export default function UserProfile() {
     const [component, setComponent] = useState("information")
     const [userProfile, setUserProfile] = useState()
     const [loading, setLoading] = useState(false)
-    const wantedProfile = userProfiles.find(profile => profile.id === id)
+    // const wantedProfile = userProfiles.find(profile => profile.id === id)
 
     useEffect(() => {
         setLoading(true)
         const profileId = parseInt(id, 10);
         const profile = userProfiles.find(profile => profile.id === profileId)
-        console.log("Wanted Profile is:", profile)
         setUserProfile(profile)
         setLoading(false)
-        console.log("I Love This Game", profile);
-    }, [id])
-    // console.log("I Love This Game", wantedProfile)
+    }, [id]);
+
     const ProfileHero = () => {
         return(
             <div 
@@ -35,22 +32,24 @@ export default function UserProfile() {
                     height: '350px',
                 }}
             >
-                <div className='mx-auto'>
-                    <section className='flex flex-col items-center justify-center space-y-2'>
-                        <div>
-                            <img 
-                                className={`w-28 h-28 p-1 rounded-full ring-2 ring-white `} 
-                                src={userProfile?.cover_image} 
-                                alt="Bordered avatar" 
-                            />
-                        </div>
-                        <div>
-                            <h1 className='text-white text-3xl'>
-                                {userProfile?.name}
-                            </h1>
-                        </div>
-                    </section>
-                </div>
+                {userProfile&& 
+                    <div className='mx-auto'>
+                        <section className='flex flex-col items-center justify-center space-y-2'>
+                            <div>
+                                <img 
+                                    className={`w-28 h-28 p-1 rounded-full ring-2 ring-white `} 
+                                    src={userProfile?.cover_image} 
+                                    alt="Bordered avatar" 
+                                />
+                            </div>
+                            <div>
+                                <h1 className='text-white text-3xl'>
+                                    {userProfile?.name}
+                                </h1>
+                            </div>
+                        </section>
+                    </div>
+                }
             </div>
         )
     }

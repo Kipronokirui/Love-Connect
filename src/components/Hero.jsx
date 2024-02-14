@@ -19,7 +19,7 @@ export default function Hero() {
                     New Places, <br/>Unforgettable Dating.
                 </h1>
                 <p className='text-xl'>
-                    Still looking for your significant other? GO is the place for you!<br/> 
+                    Still looking for your significant other? Love Connect is the place for you!<br/> 
                     Join us now to meet single men and women across the world.
                 </p>
             </div>

@@ -13,18 +13,18 @@ export default function ProfileInformation({profile}) {
                 <div className='mb-2 flex items-center justify-start space-x-4 border-2 bg-white p-2'>
                     <div className='border-r-2 px-4'>
                         <p className='text-lg leading-8 text-gray-600'>
-                            Age: <span>{profile.age}</span> Years
+                            Age: <span>{profile?.age}</span> Years
                         </p>
                     </div>
                     <div>
                         <p className='text-lg leading-8 text-gray-600'>
-                            Active <span>{profile.last_active}</span> ago
+                            Active <span>{profile?.last_active}</span> ago
                         </p>
                     </div>
                 </div>
                 <div className='mb-2'>
                     <p className='text-lg leading-8 text-gray-600'>
-                        {profile.about}
+                        {profile?.about}
                     </p>
                 </div>
                 <div>
@@ -38,7 +38,7 @@ export default function ProfileInformation({profile}) {
                                 </div>
                                 <div className="flex-grow">
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        {profile.gender}
+                                        {profile?.gender}
                                     </h1>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ export default function ProfileInformation({profile}) {
                                 </div>
                                 <div className="flex-grow">
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        {profile.interested_in_gender}
+                                        {profile?.interested_in_gender}
                                     </h1>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ export default function ProfileInformation({profile}) {
                                 </div>
                                 <div>
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        {profile.country}
+                                        {profile?.country}
                                     </h1>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ export default function ProfileInformation({profile}) {
                                 </div>
                                 <div>
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        {profile.city}
+                                        {profile?.city}
                                     </h1>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@ export default function ProfileInformation({profile}) {
                                     </h1>
                                 </div>
                                 <div>
-                                    {profile.interests?.map((interest, index) => {
+                                    {profile?.interests?.map((interest, index) => {
                                         return(
                                             <h1 className='text-lg leading-8 text-gray-600'>
                                                 {interest}
@@ -112,10 +112,10 @@ export default function ProfileInformation({profile}) {
                                     </h1>
                                 </div>
                                 <div>
-                                    {profile.children > 0 ? (
+                                    {profile?.children > 0 ? (
                                         <h1>
                                             <span className='font-semibold me-1'>
-                                                {profile.children}
+                                                {profile?.children}
                                             </span> 
                                             Children 
                                         </h1>

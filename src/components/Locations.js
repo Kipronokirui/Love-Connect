@@ -32,8 +32,7 @@ export default function Locations() {
                         </div>
                         <div className="text-center px-8">
                             <h1 className='text-white text-2xl'>
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                                dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit.
+                                Explore our 'Popular Places' page and discover a curated collection
                             </h1>
                         </div>
                     </section>
