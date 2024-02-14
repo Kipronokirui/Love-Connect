@@ -1,6 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 export default function Register() {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirm_password: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted with:', formData);
+    };
   return (
     <div>
         <div className=''>
@@ -15,13 +33,15 @@ export default function Register() {
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 Register
                             </h1>
-                            <form className="space-y-4 md:space-y-6" action="#">
+                            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                                 <div>
                                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                     <input 
                                         type="email" 
                                         name="email" 
                                         id="email" 
+                                        value={formData.email}
+                                        onChange={handleInputChange}
                                         className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm 
                                         rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`} 
                                         placeholder="name@company.com" 
@@ -34,6 +54,8 @@ export default function Register() {
                                         type="password" 
                                         name="password" 
                                         id="password" 
+                                        value={formData.password}
+                                        onChange={handleInputChange}
                                         placeholder="••••••••" 
                                         className={`bg-gray-50 border border-gray-300 text-gray-900 
                                         sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block 
@@ -46,7 +68,9 @@ export default function Register() {
                                     <input 
                                         type="confirm-password" 
                                         name="confirm-password" 
-                                        id="confirm-password" 
+                                        id="confirm-password"
+                                        value={formData.confirm_password}
+                                        onChange={handleInputChange} 
                                         placeholder="••••••••" 
                                         className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm 
                                         rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`} 

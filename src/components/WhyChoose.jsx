@@ -23,9 +23,9 @@ export default function WhyChoose() {
   return (
     <div>
         <section className='grid grid-cols-3 gap-4'>
-            {reasons?.map((reason) => {
+            {reasons?.map((reason, index) => {
                 return(
-                    <div>
+                    <div key={index}>
                         <div className='mb-2'>
                             {reason.icon && 
                                 <span className='text-purple-600 text-4xl font-bold'>

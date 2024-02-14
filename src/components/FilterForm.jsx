@@ -1,18 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FaSearch } from "react-icons/fa";
 
 export default function FilterForm() {
+    const [formData, setFormData] = useState({
+        myGender: '',
+        interestedInGender: '',
+        minimumAge: 18,
+        maximumAge: 35,
+        country: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted with:', formData);
+    };
   return (
     <div className='p-4 w-max-full flex justify-center border'>
-        <form className='min-w-full'>
+        <form className='min-w-full' onSubmit={handleSubmit}>
             <section className='flex justify-center items-center space-x-6'>
                 <div>
-                    <label for="gender" class="block text-lg font-medium leading-6 text-gray-900">
+                    <label htmlFor="myGender" className="block text-lg font-medium leading-6 text-gray-900">
                         I am
                     </label>
                     <div className='mt-2'>
                         <select 
-                            name="gender" 
+                            name="myGender"
+                            value={formData.myGender} 
+                            onChange={handleInputChange} 
                             className={`block w-36 rounded-md border-0 px-2 py-2 text-gray-900 shadow-sm ring-1 
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
@@ -24,12 +46,14 @@ export default function FilterForm() {
                     </div>
                 </div>
                 <div>
-                    <label for="lookingFor" class="block text-lg font-medium leading-6 text-gray-900">
+                    <label htmlFor="interestedInGender" className="block text-lg font-medium leading-6 text-gray-900">
                         Looking For
                     </label>
                     <div className='mt-2'>
                         <select 
-                            name="lookingFor" 
+                            name="interestedInGender"
+                            value={formData.interestedInGender} 
+                            onChange={handleInputChange} 
                             className={`block w-36 rounded-md border-0 px-2 py-2 text-gray-900 shadow-sm ring-1 
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
@@ -41,14 +65,16 @@ export default function FilterForm() {
                     </div>
                 </div>
                 <section>
-                    <label for="age" class="block text-lg font-medium leading-6 text-gray-900">
+                    <label htmlFor="minimumAge" className="block text-lg font-medium leading-6 text-gray-900">
                         Age
                     </label>
                     <div className='flex items-center space-x-4'>
                         <div>
                             <div className='mt-2'>
                                 <select 
-                                    name="minimumAge" 
+                                    name="minimumAge"
+                                    value={formData.minimumAge} 
+                                    onChange={handleInputChange} 
                                     className={`block w-28 rounded-md border-0 px-2 py-2 text-gray-900 shadow-sm ring-1 
                                     ring-inset ring-gray-300 text-xl font-semibold
                                     sm:max-w-xs sm:text-sm sm:leading-6`}
@@ -59,11 +85,13 @@ export default function FilterForm() {
                                 </select>
                             </div>
                         </div>
-                        <div class="border-b-2 border-solid border-gray-500 w-8 h-2"></div>
+                        <div className="border-b-2 border-solid border-gray-500 w-8 h-2"></div>
                         <div>
                             <div className='mt-2'>
                                 <select 
-                                    name="maximumAge" 
+                                    name="maximumAge"
+                                    value={formData.maximumAge} 
+                                    onChange={handleInputChange}  
                                     className={`block w-28 rounded-md border-0 px-2 py-2 text-gray-900 shadow-sm ring-1 
                                     ring-inset ring-gray-300 text-xl font-semibold
                                     sm:max-w-xs sm:text-sm sm:leading-6`}
@@ -77,12 +105,14 @@ export default function FilterForm() {
                     </div>
                 </section>
                 <div>
-                    <label for="country" class="block text-lg font-medium leading-6 text-gray-900">
+                    <label htmlFor="country" className="block text-lg font-medium leading-6 text-gray-900">
                         Country
                     </label>
                     <div className='mt-2'>
                         <select 
-                            name="country" 
+                            name="country"
+                            value={formData.country} 
+                            onChange={handleInputChange}  
                             className={`block w-40 rounded-md border-0 px-2 py-2 text-gray-900 shadow-sm ring-1 
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
