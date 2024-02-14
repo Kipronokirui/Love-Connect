@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ProfileInformation() {
+export default function ProfileInformation({profile}) {
   return (
     <div className='p-4'>
         <div className='grid grid-cols-3 gap-4'>
@@ -13,22 +13,18 @@ export default function ProfileInformation() {
                 <div className='mb-2 flex items-center justify-start space-x-4 border-2 bg-white p-2'>
                     <div className='border-r-2 px-4'>
                         <p className='text-lg leading-8 text-gray-600'>
-                            Age: 22 Years
+                            Age: <span>{profile.age}</span> Years
                         </p>
                     </div>
                     <div>
                         <p className='text-lg leading-8 text-gray-600'>
-                            Active 10 days ago
+                            Active <span>{profile.last_active}</span> ago
                         </p>
                     </div>
                 </div>
                 <div className='mb-2'>
                     <p className='text-lg leading-8 text-gray-600'>
-                        Pellentesque quis dui varius, dapibus velit id, iaculis ipsum. 
-                        Morbi ac eros feugiat, lacinia elit ut elementum turpis. Curabitur justo sapien, 
-                        tempus sit amet rutrum eu, commodo eu lacus. Morbi in ligula nibh. 
-                        Maecenas ut mi at odio hendrerit eleifend tempor vitae augue. 
-                        Fusce eget arcu et nibh dapibus maximus consectetur in est.
+                        {profile.about}
                     </p>
                 </div>
                 <div>
@@ -42,7 +38,7 @@ export default function ProfileInformation() {
                                 </div>
                                 <div className="flex-grow">
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        Male
+                                        {profile.gender}
                                     </h1>
                                 </div>
                             </div>
@@ -56,7 +52,7 @@ export default function ProfileInformation() {
                                 </div>
                                 <div className="flex-grow">
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        Male
+                                        {profile.interested_in_gender}
                                     </h1>
                                 </div>
                             </div>
@@ -70,7 +66,7 @@ export default function ProfileInformation() {
                                 </div>
                                 <div>
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        Kenya
+                                        {profile.country}
                                     </h1>
                                 </div>
                             </div>
@@ -84,7 +80,7 @@ export default function ProfileInformation() {
                                 </div>
                                 <div>
                                     <h1 className='text-lg leading-8 text-gray-600'>
-                                        Nairobi
+                                        {profile.city}
                                     </h1>
                                 </div>
                             </div>
@@ -97,9 +93,14 @@ export default function ProfileInformation() {
                                     </h1>
                                 </div>
                                 <div>
-                                    <h1 className='text-lg leading-8 text-gray-600'>
-                                        Swimming
-                                    </h1>
+                                    {profile.interests?.map((interest, index) => {
+                                        return(
+                                            <h1 className='text-lg leading-8 text-gray-600'>
+                                                {interest}
+                                            </h1>
+                                        )
+                                    }) }
+                                    
                                 </div>
                             </div>
                         </li>
@@ -111,9 +112,18 @@ export default function ProfileInformation() {
                                     </h1>
                                 </div>
                                 <div>
+                                    {profile.children > 0 ? (
+                                        <h1>
+                                            <span className='font-semibold me-1'>
+                                                {profile.children}
+                                            </span> 
+                                            Children 
+                                        </h1>
+                                    ) : (
                                     <h1 className='text-lg leading-8 text-gray-600'>
                                         No Children
                                     </h1>
+                                    )}
                                 </div>
                             </div>
                         </li>

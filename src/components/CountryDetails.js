@@ -61,16 +61,22 @@ export default function CountryDetails() {
         </div>
         <div className='my-4 mx-8'>
             <section className='my-4 mx-4'>
-                {countryProfiles.length > 0 ? (
-                    <div className='grid grid-cols-3 gap-4 mb-2'>
-                        {countryProfiles?.map((profile) => {
-                            return(
-                                <ProfileCard key={profile.id} profile={profile} />
-                            )
-                        })}
+                {loading ? (
+                    <h1>Loading...</h1>
+                    ) : (
+                    <div>
+                        {countryProfiles.length > 0 ? (
+                            <div className='grid grid-cols-3 gap-4 mb-2'>
+                                {countryProfiles?.map((profile) => {
+                                    return(
+                                        <ProfileCard key={profile.id} profile={profile} />
+                                    )
+                                })}
+                            </div>
+                        ) : (
+                            <div>There are no profiles</div>
+                        )}
                     </div>
-                ) : (
-                    <div>There are no profiles</div>
                 )}
                 
             </section>

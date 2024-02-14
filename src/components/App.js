@@ -10,6 +10,8 @@ import About from './About';
 import Login from './Login';
 import Register from './Register';
 import CountryDetails from './CountryDetails';
+import ProfilesList from './ProfilesList';
+import ContactUs from './ContactUs';
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
         <main className='min-h-screen'>
           <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="profiles" element={<ProfilesList />} />
               <Route path="profile/:id" element={<UserProfile />} />
               <Route path='locations' element={<Locations />} />
               <Route path='about' element={<About />} />
+              <Route path='contact-us' element={<ContactUs />} />
               <Route path='login' element={<Login />} />
               <Route path='register' element={<Register />} />
               <Route path='country/:slug' element={<CountryDetails />} />

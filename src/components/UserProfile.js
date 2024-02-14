@@ -1,15 +1,29 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 // import image from '../assets/bg_home.jpg'
 import profile_background from '../assets/bg_profile.jpg'
 import profile_photo from "../assets/profile01.jpg"
 import ProfileInformation from './ProfileInformation'
 import ProfileGallery from './ProfileGallery'
 import {useParams } from "react-router-dom";
+import { userProfiles } from '../utils/profiles'
 
 export default function UserProfile() {
+    const { id } = useParams();
     const [component, setComponent] = useState("information")
-    let { id } = useParams();
-    console.log("I Love This Game", id)
+    const [userProfile, setUserProfile] = useState()
+    const [loading, setLoading] = useState(false)
+    const wantedProfile = userProfiles.find(profile => profile.id === id)
+
+    useEffect(() => {
+        setLoading(true)
+        const profileId = parseInt(id, 10);
+        const profile = userProfiles.find(profile => profile.id === profileId)
+        console.log("Wanted Profile is:", profile)
+        setUserProfile(profile)
+        setLoading(false)
+        console.log("I Love This Game", profile);
+    }, [id])
+    // console.log("I Love This Game", wantedProfile)
     const ProfileHero = () => {
         return(
             <div 
@@ -26,13 +40,13 @@ export default function UserProfile() {
                         <div>
                             <img 
                                 className={`w-28 h-28 p-1 rounded-full ring-2 ring-white `} 
-                                src={profile_photo} 
+                                src={userProfile?.cover_image} 
                                 alt="Bordered avatar" 
                             />
                         </div>
                         <div>
                             <h1 className='text-white text-3xl'>
-                                Nicholas Kioko
+                                {userProfile?.name}
                             </h1>
                         </div>
                     </section>
@@ -64,13 +78,17 @@ export default function UserProfile() {
                     </button>
                 </div>
             </div>
-            <div className='border-b border-purple-800'>
-                {component === "information" ? (
-                    <ProfileInformation />
+            {loading ? (
+                <h1>Loading....</h1>
                 ) : (
-                    <ProfileGallery />
-                )}
-            </div>
+                <div className='border-b border-purple-800'>
+                    {component === "information" ? (
+                        <ProfileInformation profile={userProfile}/>
+                    ) : (
+                        <ProfileGallery profile={userProfile}/>
+                    )}
+                </div>
+            )}
         </section>
     </div>
   )

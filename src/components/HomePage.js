@@ -20,15 +20,21 @@ export default function HomePage() {
   return (
     <div>
         <Hero />
-        <div>
-            <HomeProfiles profiles={profiles} />
-        </div>
-        <div className='px-8 mx-4 my-4'>
-            <WhyChoose />
-        </div>
-        <div className='px-8 mx-4 my-4'>
-            <Countries countries={countries} />
-        </div>
+        {loading ? (
+          <h1>Please wait...</h1>
+          ) : (
+          <>
+            <div>
+                <HomeProfiles profiles={profiles} />
+            </div>
+            <div className='px-8 mx-4 my-4'>
+                <WhyChoose />
+            </div>
+            <div className='px-8 mx-4 my-4'>
+                <Countries countries={countryList} />
+            </div>
+          </>
+        )}
     </div>
   )
 }

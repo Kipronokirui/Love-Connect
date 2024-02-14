@@ -10,7 +10,7 @@ export const userProfiles = [
         id: 1,
         name: "John Wilson",
         about:"Pellentesque quis dui varius, dapibus velit id, iaculis ipsum. Morbi ac eros feugiat, lacinia elit ut elementum turpis.",
-        cover_image:profile01,
+        cover_image: profile01,
         country: "Rwanda",
         city: "Nakuru",
         age: 22,

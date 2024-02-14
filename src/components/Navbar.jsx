@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 // import image from '../assets/bg_home.jpg'
 // import FilterForm from './FilterForm';
 
 export default function Navbar() {
-    const [dialogueOpen, setDialogueOpen] = useState(false)
 
   return (
     <div>
@@ -44,6 +43,12 @@ export default function Navbar() {
                                 Home
                             </a>
                             <a 
+                                href="/profiles" 
+                                className={`text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                            >
+                                Profiles
+                            </a>
+                            <a 
                                 href="/locations" 
                                 className={`text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                             >
@@ -56,10 +61,10 @@ export default function Navbar() {
                                 About Us
                             </a>
                             <a 
-                                href="#!" 
+                                href="/contact-us" 
                                 className={`text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                             >
-                                Calendar
+                                Contact Us
                             </a>
                         </div>
                     </section>

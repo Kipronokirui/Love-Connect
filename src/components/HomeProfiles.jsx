@@ -1,50 +1,6 @@
 import React from 'react'
 import ProfileCard from './ProfileCard'
-import profile01 from "../assets/profile01.jpg"
-import profile02 from "../assets/profile02.jpg"
-import profile03 from "../assets/profile03.jpg"
-import profile04 from "../assets/profile04.jpg"
-import profile05 from "../assets/profile05.jpg"
-import profile06 from "../assets/profile06.jpg"
 
-// export const profiles = [
-//     {
-//         id:1,
-//         name:"John Wilson",
-//         cover_photo: profile01,
-//         last_active:"4 days",
-//     },
-//     {
-//         id:2,
-//         name:"Joshua Kimmich",
-//         cover_photo: profile02,
-//         last_active:"4 days",
-//     },
-//     {
-//         id:3,
-//         name:"Andrew Kibe",
-//         cover_photo:profile03,
-//         last_active:"4 days",
-//     },
-//     {
-//         id:4,
-//         name:"Sabina Chege",
-//         cover_photo: profile04,
-//         last_active:"4 days",
-//     },
-//     {
-//         id:5,
-//         name:"Cate Waruguru",
-//         cover_photo: profile05,
-//         last_active:"4 days",
-//     },
-//     {
-//         id:6,
-//         name:"Charlene Ruto",
-//         cover_photo: profile06,
-//         last_active:"4 days",
-//     },
-// ]
 export default function HomeProfiles({profiles}) {
   return (
     <div className='my-4 mx-8'>
