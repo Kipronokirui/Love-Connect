@@ -12,6 +12,7 @@ import Register from './Register';
 import CountryDetails from './CountryDetails';
 import ProfilesList from './ProfilesList';
 import ContactUs from './ContactUs';
+import PageNotFound from './PageNotFound';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path='login' element={<Login />} />
               <Route path='register' element={<Register />} />
               <Route path='country/:slug' element={<CountryDetails />} />
+              <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
         <footer>

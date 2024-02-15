@@ -4,6 +4,10 @@ import profile03 from "../assets/profile03.jpg"
 import profile04 from "../assets/profile04.jpg"
 import profile05 from "../assets/profile05.jpg"
 import profile06 from "../assets/profile06.jpg"
+import profile07 from "../assets/profile07.jpg"
+import profile08 from "../assets/profile08.jpg"
+import profile09 from "../assets/profile09.jpg"
+import profile10 from "../assets/profile10.jpg"
 
 export const userProfiles = [
     {
@@ -113,5 +117,83 @@ export const userProfiles = [
             profile02
         ],
         last_active:"4 days"
+    },
+    {
+        id: 7,
+        name: "Stephannie Cook",
+        about:"Seasoned chef with a passion for culinary experimentation, delights in creating fusion dishes that combine diverse flavors and ingredients. From experimenting with exotic spices to crafting unique dessert combinations, Alex's kitchen is a playground for culinary innovation.",
+        cover_image: profile07,
+        country: "Zambia",
+        city: "Victoria Falls",
+        age: 32,
+        gender: "Male",
+        interested_in_gender: "Female",
+        interests: ["Learning a New Language", "Volunteering", "Cycling"],
+        children: 0,
+        images: [
+            profile01,
+            profile02,
+            profile07
+        ],
+        last_active:"3 weeks"
+    },
+    {
+        id: 8,
+        name: "Stephanie Nakagawa",
+        about:"Seasoned chef with a passion for culinary experimentation, delights in creating fusion dishes that combine diverse flavors and ingredients. From experimenting with exotic spices to crafting unique dessert combinations, Alex's kitchen is a playground for culinary innovation.",
+        cover_image: profile08,
+        country: "Uganda",
+        city: "Kampala",
+        age: 32,
+        gender: "Male",
+        interested_in_gender: "Female",
+        interests: ["Playing a Musical Instrument", "Sleeping", "Photography"],
+        children: 0,
+        images: [
+            profile01,
+            profile02,
+            profile05,
+            profile08
+        ],
+        last_active:"4 days"
+    },
+    {
+        id: 9,
+        name: "Jack Finigan",
+        about:"Seasoned chef with a passion for culinary experimentation, delights in creating fusion dishes that combine diverse flavors and ingredients. From experimenting with exotic spices to crafting unique dessert combinations, Alex's kitchen is a playground for culinary innovation.",
+        cover_image: profile09,
+        country: "Tanzania",
+        city: "Dodoma",
+        age: 32,
+        gender: "Male",
+        interested_in_gender: "Female",
+        interests: ["Swimming", "Sleeping"],
+        children: 0,
+        images: [
+            profile01,
+            profile02,
+            profile09,
+            profile10
+        ],
+        last_active:"4 days"
+    },
+    {
+        id: 10,
+        name: "Prince Akachi",
+        about:"Seasoned chef with a passion for culinary experimentation, delights in creating fusion dishes that combine diverse flavors and ingredients. From experimenting with exotic spices to crafting unique dessert combinations, Alex's kitchen is a playground for culinary innovation.",
+        cover_image: profile10,
+        country: "Egypt",
+        city: "Cairo",
+        age: 32,
+        gender: "Male",
+        interested_in_gender: "Female",
+        interests: ["Cooking/Baking", "DIY Crafts","Swimming", "Sleeping", "Yoga/Meditation"],
+        children: 0,
+        images: [
+            profile01,
+            profile02,
+            profile10
+        ],
+        last_active:"6 hours"
     },
 ]
