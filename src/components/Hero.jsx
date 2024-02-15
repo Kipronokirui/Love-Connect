@@ -2,7 +2,7 @@ import React from 'react'
 import image from '../assets/bg_home.jpg'
 import FilterForm from './FilterForm';
 
-export default function Hero() {
+export default function Hero({profileFilter}) {
   return (
     <div>
         <div 
@@ -25,7 +25,7 @@ export default function Hero() {
             </div>
             <section className='absolute bottom-0 left-0 right-0' style={{ width: '100%' }}>
                 <div className='mx-4 bg-white'>
-                    <FilterForm />
+                    <FilterForm profileFilter={profileFilter} />
                 </div>
             </section>
         </div>

@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import { FaSearch } from "react-icons/fa";
+import { countries } from '../utils/countries';
 
-export default function FilterForm() {
+export default function FilterForm({profileFilter}) {
     const [formData, setFormData] = useState({
         myGender: '',
         interestedInGender: '',
-        minimumAge: 18,
-        maximumAge: 35,
-        country: '',
+        minimumAge: 0,
+        maximumAge: 0,
+        // country: countries[0].name,
+        country: ''
     });
 
     const handleInputChange = (e) => {
@@ -20,7 +22,9 @@ export default function FilterForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted with:', formData);
+        console.log('Form submitted with:');
+        profileFilter(formData)
+        console.log("Profile filter called from FilterForm")
     };
   return (
     <div className='p-4 w-max-full flex justify-center border'>
@@ -39,9 +43,10 @@ export default function FilterForm() {
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
                         >
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Non Binary</option>
+                            <option value="">Select Gender</option>
+                            <option value={'Male'}>Male</option>
+                            <option value={'Female'}>Female</option>
+                            <option value={'Non Binary'}>Non Binary</option>
                         </select>
                     </div>
                 </div>
@@ -58,9 +63,10 @@ export default function FilterForm() {
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
                         >
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Non Binary</option>
+                            <option value="">Select Gender</option>
+                            <option value={'Male'}>Male</option>
+                            <option value={'Female'}>Female</option>
+                            <option value={'Non Binary'}>Non Binary</option>
                         </select>
                     </div>
                 </div>
@@ -79,9 +85,17 @@ export default function FilterForm() {
                                     ring-inset ring-gray-300 text-xl font-semibold
                                     sm:max-w-xs sm:text-sm sm:leading-6`}
                                 >
-                                    <option>18</option>
-                                    <option>20</option>
-                                    <option>22</option>
+                                    <option value="">Minimum Age</option>
+                                    {Array.from({ length: 13 }, (_, index) => (
+                                        <option key={index + 18} value={index + 18}>
+                                            {index + 18}
+                                        </option>
+                                    ))}
+                                    {/* <option value={18}>18</option>
+                                    <option value={20}>20</option>
+                                    <option value={22}>22</option>
+                                    <option value={24}>24</option>
+                                    <option value={26}>26</option> */}
                                 </select>
                             </div>
                         </div>
@@ -96,9 +110,15 @@ export default function FilterForm() {
                                     ring-inset ring-gray-300 text-xl font-semibold
                                     sm:max-w-xs sm:text-sm sm:leading-6`}
                                 >
-                                    <option>26</option>
-                                    <option>28</option>
-                                    <option>30</option>
+                                    <option value="">Maximum Age</option>
+                                    {Array.from({ length: 13 }, (_, index) => (
+                                        <option key={index + 18} value={index + 18}>
+                                            {index + 18}
+                                        </option>
+                                    ))}
+                                    {/* <option value={18}>18</option>
+                                    <option value={20}>20</option>
+                                    <option value={22}>22</option> */}
                                 </select>
                             </div>
                         </div>
@@ -117,10 +137,17 @@ export default function FilterForm() {
                             ring-inset ring-gray-300 text-xl font-semibold
                             sm:max-w-xs sm:text-sm sm:leading-6`}
                         >
-                            <option>USA</option>
-                            <option>Canada</option>
-                            <option>UK</option>
-                            <option>Ireland</option>
+                            <option value="">Select Country</option>
+                            {countries?.map((country, index) => {
+                                return(
+                                    <option 
+                                        key={index}
+                                        value={country.name}
+                                    >
+                                        {country.name}
+                                    </option>
+                                )
+                            })}
                         </select>
                     </div>
                 </div>
