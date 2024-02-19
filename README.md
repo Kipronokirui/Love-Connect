@@ -1,3 +1,10 @@
+# Group 2 Project: Love Connect
+## Group Members
+1. Mohamed Sheikh
+2. Craig Omondi
+3. Sarah Tharao
+4. Victor Kirui
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
